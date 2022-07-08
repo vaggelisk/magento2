@@ -12,6 +12,7 @@ const {
     magento: {
       configuration: {
         cookies,
+        cookiesDefaultOpts,
         externalCheckout,
         defaultStore,
         magentoBaseUrl,
@@ -34,7 +35,7 @@ export default () => {
     head: {
       title: process.env.npm_package_name || '',
       meta: [
-        { charset: 'utf-8' },
+        { charset: 'utf8' },
         {
           name: 'viewport',
           content: 'width=device-width, initial-scale=1',
@@ -81,6 +82,7 @@ export default () => {
       }],
       ['~/modules/magento', {
         cookies,
+        cookiesDefaultOpts,
         externalCheckout,
         defaultStore,
         magentoBaseUrl,
@@ -235,7 +237,6 @@ export default () => {
       VSF_MAGENTO_GRAPHQL_URL: process.env.VSF_MAGENTO_GRAPHQL_URL,
     },
   };
-
   if (process.env.VSF_IMAGE_PROVIDER === 'cloudinary') {
     baseConfig.image.cloudinary = {
       baseURL: process.env.VSF_IMAGE_PROVIDER_BASE_URL,

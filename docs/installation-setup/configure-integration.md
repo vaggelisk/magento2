@@ -71,3 +71,26 @@ When working with translation in your application, you need to:
 
 1. Add translations in Magento for products and categories.
 2. Update the `i18n.locales` array in the `nuxt.config.js` file and add translations to the corresponding files in the `lang` directory.
+
+### 4. Configure default cookies settings
+
+Vue Storefront app uses different cookies but all share the same default config. To adjust the configuration you have to modify `middleware.config.js`.
+Once done, rebuild your application.
+
+```js
+module.exports = {
+  integrations: {
+    magento: {
+      configuration: {
+        /*...*/
+        // Here you can override default cookies options
+        cookiesDefaultOpts: {
+          httpOnly: false,
+          secure: false,
+        },
+        /*...*/
+      },
+    },
+  },
+};
+```

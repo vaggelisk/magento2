@@ -12,6 +12,11 @@ module.exports = {
         cookies: {
           ...cookieNames,
         },
+        cookiesDefaultOpts: {
+          httpOnly: false,
+          secure: false,
+          sameSite: 'Strict',
+        },
         defaultStore: 'default',
         externalCheckout: {
           enable: isCheckoutEnabled,
